@@ -2,7 +2,7 @@
 import streamlit as st
 from gpt_integration import ask_gpt
 
-st.title("EmotionCV — MVP Demo")
+st.title("EmotionCV")
 
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
