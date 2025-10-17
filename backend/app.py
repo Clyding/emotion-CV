@@ -26,7 +26,7 @@ app.add_middleware(
 vision_model = EmotionVisionModel()
 voice_model = EmotionVoiceModel()
 
-client = OpenAI(api_key=os.getenv("lol it's free, get yours"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Database session dependency
 def get_db():

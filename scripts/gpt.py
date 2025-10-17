@@ -2,7 +2,7 @@
 import os
 from openai import OpenAI
 
-# ✅ Expect API key from environment variable — safer and flexible
+
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 SYSTEM_PROMPT = """
