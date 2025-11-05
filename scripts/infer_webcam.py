@@ -3,28 +3,24 @@ import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
 
-# Load model
-MODEL_PATH = "models/fer_cnn.h5"   
+
+MODEL_PATH = "/home/clyde/emotion-CV/models/fer_mobilenetv2.h5"   
 model = load_model(MODEL_PATH)
 
-input_shape = model.input_shape  # e.g. (None, 48, 48, 1) or (None, 48, 48, 3)
+input_shape = model.input_shape  
 channels = input_shape[-1]
 
-# FER2013 emotion labels
 labels = ['angry','disgust','fear','happy','sad','surprise','neutral']
 
-# Webcam Setup
 face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
 )
 cap = cv2.VideoCapture(0)
 print("🎥 Press 'q' to quit webcam window")
 
-# Preprocessing Helper Function
 def preprocess_face(face_img):
     face = cv2.resize(face_img, (48,48))
     if channels == 1:  
-        # CNN model → grayscale
         face = face.reshape(1,48,48,1).astype('float32') / 255.0
     else:
         # MobileNetV2 → convert to RGB (3 channels)
@@ -32,7 +28,6 @@ def preprocess_face(face_img):
         face = face.reshape(1,48,48,3).astype('float32') / 255.0
     return face
 
-# Inference Loop
 while True:
     ret, frame = cap.read()
     if not ret:
