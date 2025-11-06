@@ -42,9 +42,9 @@ AUDIO_RMS_THRESHOLD = 0.12
 AUDIO_PEAK_THRESHOLD = 0.6  
 
 EMERGENCY_KEYWORDS = [
-    "suicide", "kill myself", "i want to die", "harm myself",
-    "bleeding", "bleed", "help me", "emergency", "call 911", "hurt",
-    "stabbing", "shoot", "scream", "unresponsive", "not breathing"
+    "suicide", "kill myself", "i want to die", "harm myself", "cut myself",
+    "bleeding", "bleed", "help me", "emergency", "call 911", "hurt", "death",
+    "stabbing", "shoot", "scream", "unresponsive", "not breathing", "gun", ""
 ]
 
 EMPATHY_TEMPLATES = {
