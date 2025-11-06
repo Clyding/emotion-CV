@@ -23,8 +23,12 @@ app.add_middleware(
 )
 
 # Models
-vision_model = EmotionVisionModel()
-voice_model = EmotionVoiceModel()
+
+fer_path = os.getenv("FER_MODEL_PATH", "/home/clyde/emotion-CV/models/emotion_cnn_final.h5")
+voice_path = os.getenv("VOICE_MODEL_PATH", "../models/voice_model.pth")
+
+vision_model = EmotionVisionModel(model_path=fer_path)
+voice_model = EmotionVoiceModel(model_path=voice_path)
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
