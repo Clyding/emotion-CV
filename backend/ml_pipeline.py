@@ -44,7 +44,8 @@ class EmotionVisionModel:
 class EmotionVoiceModel:
     def __init__(self, model_path="", device="cpu"):
         self.device = device
-        self.model = torch.load(model_path, map_location=device)
+        # self.model = torch.load(model_path, map_location=device)
+        self.model = torch.load(model_path, map_location=device, weights_only=False)
         self.model.eval()
         self.labels = ['neutral','calm','happy','sad','angry','fearful','disgust','surprised']
 

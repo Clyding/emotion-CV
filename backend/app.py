@@ -25,10 +25,12 @@ app.add_middleware(
 # Models
 
 fer_path = os.getenv("FER_MODEL_PATH", "/home/clyde/emotion-CV/models/emotion_cnn_final.h5")
-voice_path = os.getenv("VOICE_MODEL_PATH", "../models/voice_model.pth")
+voice_path = os.getenv("VOICE_MODEL_PATH", "/home/clyde/emotion-CV/notebook/ravdess_final_model.h5")
 
 vision_model = EmotionVisionModel(model_path=fer_path)
-voice_model = EmotionVoiceModel(model_path=voice_path)
+print("⚠️ Voice model not available — skipping.")
+voice_model = None
+# voice_model = EmotionVoiceModel(model_path=voice_path)
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
