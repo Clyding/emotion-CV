@@ -25,7 +25,6 @@ def ask_gpt(user_text, emotion_probs):
             max_output_tokens=400,
         )
 
-        # Extract text output safely
         output_text = ""
         for item in response.output:
             if hasattr(item, "content"):
@@ -33,7 +32,6 @@ def ask_gpt(user_text, emotion_probs):
                     if piece.get("type") == "output_text":
                         output_text += piece.get("text", "")
 
-        # Fallback if no response text found
         return output_text.strip() or "I'm here for you — tell me more about how you're feeling."
 
     except Exception as e:
