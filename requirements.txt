@@ -152,3 +152,4 @@ numpy
 tensorflow    
 sounddevice
 soundfile
+ffmpeg-python
